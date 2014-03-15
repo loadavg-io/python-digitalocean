@@ -163,6 +163,8 @@ class Droplet(object):
         data = self.__call_api("new", data)
         if data:
             self.id = data['droplet']['id']
+            event_id = data['droplet']['event_id']
+            return Event(event_id)
 
     def get_events(self):
         """
